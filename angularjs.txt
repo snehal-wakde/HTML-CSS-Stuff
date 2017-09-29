@@ -1,0 +1,94 @@
+•One value: all four corners are rounded equally
+•Two values: 1st value applies to top-left and bottom-right corner; 2nd value applies to top-right and bottom-left corner
+•Three values: 1st value applies to top-left, 2nd to top-right and bottom-left, and 3rd value applies to bottom-right corner
+•Four values: 1st value applies to top-left, 2nd to top-right, 3rd to bottom-right, and 4th to bottom-left corner
+
+
+
+
+
+
+
+
+
+
+•String [ "Howdy"]
+•Number [ 23, 482.038]
+•Boolean [ true, false ]
+•Null [ null value ]
+•Undefined [ value not defined ]
+•Objects
+
+----------------------------------------------------------------
+
+config and run block
+
+To appreciate the advantages of Provider better, let us understand how Angular application runs.
+
+Angular application runs in two phases - config phase and run phase.
+
+config
+The config phase is where one can setup the provider, directives, controllers, filters etc.
+None of the services are instantiated by the injector in this phase. This phase allows only provider registrations.
+Please note that the name of the provider in the config phase would be name + Provider. i.e., if you create a provide called date, angular creates dateProvider.
+run
+The run phase is where Angular compiles your DOM and starts up your app.
+This is the phase where any service can be instantiated.
+
+----------------------------------------------------------------
+Services / Factories / Providers - Differences
+
+Services:
+
+Syntax: module.service( 'serviceName', function );
+
+Result: When declaring serviceName as an injectable argument, you will be provided with an instance of the function. In other words, new FunctionYouPassedToService()
+
+Factories:
+
+Syntax: module.factory( 'factoryName', function );
+
+Result: When declaring factoryName as an injectable argument, you will be provided with the value that is returned by invoking the function reference passed to module.factory.
+
+Providers:
+
+Syntax: module.provider( 'providerName', function );
+
+Result: When declaring providerName as an injectable argument, you will be provided with (new ProviderFunction()).$get().
+--------------------------------------------------------------
+Scope Life Cycle
+
+AngularJS compares a value with its previous value. If there is a change, a change event is fired. This is dirty checking in a nutshell.
+In AngularJS, a digest is a cycle that performs dirty checking. This is initiated via $digest().
+If something happens outside of AngularJS, you need to let AngularJS know to execute a digest cycle and you do that via $apply which calls $digest.
+In a nutshell, scope life cycle is dirty checking.
+
+
+
+Scope Life Cycle
+
+An Angular Module can have multiple controllers and each of these controllers can have multiple scope variables. Angular keeps watch on every scope variable to check for changes using $watch.
+
+Whenever the variable is updated in javascript, the same is updated in HTML view and vice-versa ensuring two-way binding.
+
+Thus, to simplify, $watch is invoked by $digest to keep watch on the variables. $digest is further invoked by $apply.
+
+$apply is at module level
+$digest works at controller level
+$watch works at variable level
+
+
+AngularJS Life Cycle
+
+It's time to quickly look at the life cycle of AngularJS application.
+
+There are three phases:
+
+Bootstrap phase
+Compilation phase
+Runtime phase
+These phases happen each time a web page is loaded in the browser.
+
+Let us look at various actions that take place within each of these phases.
+
+

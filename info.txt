@@ -1,0 +1,60 @@
+
+Emp id : 1290881
+Asset Id : 01hw182492
+Name : Rajesh Kumar
+IP Address : 172.29.50.158
+
+
+
+Please plan on writing a quick document on protractor and Karma code so we know how to use it.
+
+
+white paper chart, board with marker
+
+we inline with cust d- bindiya 
+
+
+
+Hi Bindiya,
+
+We have planned account specific agile training this week at auditorium to meet our nabors customer expectation around agile delivery .
+
+This training will be only for our Nabors account. Around 60+ associate will involved in it.
+
+Nabors account is constantly looking for improvement in SDLC process.
+
+we are planning 4 days dedicated training for entire Nabors offshore team by Ramkrishna from TCS Agile CoE.
+
+Please find attached detailed plan of training.
+
+
+
+
+
+Dear All,
+
+
+As we all know that we have arranged Agile training for offshore team this week.
+
+
+Kindly note that training will start today at 2.45PM at QBPL Auditorium.
+
+
+This training is mandatory for all associates. Please plan accordingly.
+
+
+Regards,
+
+
+ 
+
+
+
+
+
+As you are aware that Nabors account is planning for agile training for offshore team this week. 
+
+I request you to please arrage training room for 27th jul as Auditorium is not available for this day.
+
+
+

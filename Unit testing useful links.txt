@@ -1,0 +1,3 @@
+1)		Testing $rootScope.functionName 
+
+https://stackoverflow.com/questions/24229853/how-to-unit-test-a-global-function-i-e-rootscope-functionname-in-angularjs

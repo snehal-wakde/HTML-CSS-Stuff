@@ -1,0 +1,26 @@
+- e2e
+— node_modules
+— src
+	— app
+		app.component.css
+		app.component.html
+		app.component.spec.ts
+		app.component.ts
+		app.module.ts
+		index.ts
+	— assets
+	— environments
+	favicon.ico
+	index.html
+	main.ts
+	polyfills.ts
+	styles.css
+	test.ts
+	tsconfig.json
+	typings.d.ts
+angular-cli.json
+karma.conf.js
+package.json
+protractor.conf.js
+README.md
+tslint.json

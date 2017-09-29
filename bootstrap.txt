@@ -1,0 +1,433 @@
+Introduction to Bootstrap
+
+Bootstrap 3 is a free, open-source and intuitive mobile first front-end framework for quicker and easier web development. It was developed by Jacob Thornton and Mark Otto at Twitter.
+
+Bootstrap uses CSS, HTML and JavaScript.
+Bootstrap allows you to create Responsive Web Designs with ease.
+
+What is Responsive Web Design?
+
+
+Responsive web design is the approach of creating websites that automatically respond and adjust themselves to look clean and uniform across all devices.
+
+Offers a neat and consistent solution for creating an interface for developers.
+Consists of good, functional and customizable built-in components.
+Open source and offers web based customization.
+
+
+What is Bootstrap Grid System?
+
+
+Bootstrap Grid System helps to create page layouts through rows and columns that include content.
+
+It allows a maximum of 12 columns across the page. Columns can be combined for creating wider columns, if all 12 columns are not required individually.
+
+The Bootstrap grid system contains four classes that can be grouped to create flexible and dynamic layouts:
+
+lg - for larger desktops
+md - for desktops
+sm - for tablets
+xs - for phones
+
+
+How Bootstrap Grid System Works
+
+Places rows inside a .container class for padding and alignment.
+Uses rows to create columns with horizontal groups.
+Places content inside the columns, and columns can be immediate children of rows.
+Predefined grid classes such as .col-xs-4 and .row are available for creating grid layouts faster. Use LESS mixins for more semantic layouts.
+Columns can induce gutters, which are gaps noticed between column content.
+Create grid columns by specifying the number of columns required for spanning. E.g.: 3 would imply col-xs-4.
+
+
+Media Queries
+
+
+Media Query uses conditional CSS rule, and style is applied, if those conditions are satisfied.
+
+Media Queries in Bootstrap helps to hide, show and move content based on the size of the viewport.
+
+To create major breakpoints, corresponding media queries are used in LESS files.
+
+Extra small devices (phones, less than 768px)
+
+No media query since this is the default in Bootstrap
+
+Small devices (tablets, 768px and up)
+
+sh @media (min-width: @screen-sm-min) { ... }
+
+Medium devices (desktops, 992px and up)
+
+@media (min-width: @screen-md-min) { ... }
+
+Large devices (large desktops, 1200px and up)
+
+@media (min-width: @screen-lg-min) { ... }
+
+Add a max-width to limit CSS to a narrower set of devices.
+
+@media (max-width: @screen-xs-max) { ... }
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { ... }
+
+
+Bootstrap - Typography
+
+
+Create lists, paragraphs, headings, and other inline elements using typography.
+
+All HTML headings (h1 to h6) are styled in Bootstrap.
+
+<h1>I'm Heading1 h1</h1>
+<h2>I'm Heading2 h2</h2>
+<h3>I'm Heading3 h3</h3>
+<h4>I'm Heading4 h4</h4>
+<h5>I'm Heading5 h5</h5>
+<h6>I'm Heading6 h6</h6>
+
+
+Inline Subheadings
+
+
+To include an inline subheading to a heading, include .small class or add <small> around an element. The resultant will be a smaller text in a light color.
+
+<h1>I'm Heading1 h1. 
+<small>I'm secondary Heading1 h1</small>
+</h1>
+
+
+Lead Body Copy
+
+
+To emphasis a particular paragraph, include class = "lead".
+
+The resultant will be a larger font size with a taller line height, and lighter weight.
+
+<h2>Lead Example</h2>
+<p class = "lead">an example paragraph to demonstrate the use of lead body copy.</p>
+
+
+Lists
+
+
+Bootstrap supports definition lists, unordered lists, and ordered lists.
+
+Ordered lists - It is a list that is prefaced by numbers and falls in a sequential order.
+
+Unordered lists - It is styled with bullets. To prevent the bullets from appearing, eliminate the styling by using class .list-unstyled . Place all list items on one line with the class .list-inline.
+
+Definition lists - In this list, each list item contains both <dd> and <dt> elements. <dt> refers to definition term that is being defined. <dd> is the definition of the <dt>. You can create terms and descriptions in <dl> line up together using class dl-horizontal.
+
+
+Responsive Images
+
+Responsive images automatically adjust to fit the size of the screen.
+
+Create responsive images by adding an .img-responsive class to the img tag. The .img-responsive class applies display: block; and max-width: 100%; and height: auto; to the image.
+
+<img class="img-responsive" src="img_fresco.jpg" alt="Fresco">
+Bootstrap provides three classes that can be used to apply simple styles to images:
+
+.img-rounded - adds border-radius:6px to give the image rounded corners.
+
+.img-circle - makes the entire image round by adding border-radius:500px.
+
+.img-thumbnail - adds a bit of padding and a gray border.
+
+Helper Classes
+
+
+Close Icon : used to dismiss content such as alerts and modals. To get the close icon, use the class close.
+
+ <button type = "button" class = "close" aria-hidden = "true"></button>
+Carets: used to show dropdown functionality and direction. Use the class caret with a span element to get this functionality .
+
+<p>Caret Example<span class = "caret"></span></p>
+Screen Reader Content: to hide an element from all devices with an exception to screen readers with the class .sr-only.
+
+<label class = "sr-only" for = "email">Email address</label>
+<input type = "email" class = "form-control" placeholder = "Enter email">
+
+
+What are Glyphicons?
+
+
+Glyphicons are icon fonts that you can use in web projects. After downloading Bootstrap 3.x version, search for Glyphicons in the fonts folder in the directory structure.
+
+Usage:
+
+e.g.: <span class = "glyphicon glyphicon-search"></span>
+For proper padding, leave a space between the text and icon.
+
+
+Button Groups
+
+
+Group a series of buttons together on a single line with the button group.
+
+ <div class = "btn-group">
+    <button type = "button" class = "btn btn-default">
+      Button1
+    </button>
+    <button type = "button" class = "btn btn-default">
+      Button2
+    </button>
+</div>
+
+
+Nesting Button Groups
+
+
+Nest button groups to create dropdown menus mixed with series of buttons.
+
+<div class = "btn-group">
+   <button type = "button" class = "btn btn-default">Button1</button>
+   <button type = "button" class = "btn btn-default">Button2</button>
+   <div class="btn-group">
+     <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+       Dropdown<span class="caret"></span>
+     </button>
+     <ul class="dropdown-menu" role="menu">
+         <li><a href="#">Option 1</a></li>
+         <li><a href="#">Option 2</a></li>
+     </ul>
+   </div>
+</div>
+
+
+Split Button Dropdowns
+
+
+Split button dropdowns follow the same style of the nesting button groups. But split button dropdowns include a primary action with the dropdown.
+
+The buttons have a toggle on the right that displays the dropdown, and the primary action on the left.
+
+```sh
+
+Split Dropdown 
+
+
+Input Groups
+
+
+Extend form controls by adding text, buttons, or button groups on either side of textual input.
+
+For this, use input-group class and span element with class input-group-addon. Place span either before or after the input element.
+
+Usage:
+
+<div class="input-group">
+  <span class="input-group-addon">$</span>
+  <input type="text" class="form-control" placeholder="Amount" aria-label="Amount (to the nearest dollar)">
+  <span class="input-group-addon">.00</span>
+</div>
+Note:
+
+Avoid using select elements, as they cannot be fully styled in WebKit browsers for cross browser compatibility.
+Avoid applying input group classes directly to form groups. An input group is an isolated component.
+
+
+
+Button Addons
+
+
+Append or preappend buttons in input groups, using class .input-group-btn to wrap the buttons, instead of .input-group-addon class.
+
+This is necessary, as the default browser styles cannot be overridden.
+
+<div class="input-group">
+<input type="text" class="form-control" placeholder="Search for...">
+<span class="input-group-btn">
+<button class="btn btn-secondary" type="button">Go!</button>
+</span>
+</div>
+
+
+Navbar
+
+
+Is a responsive 'meta' component that acts as navigation header for a site or an application
+It collapses in mobile views and tends to become horizontal as the viewport width increases
+Navbar features styling for basic navigation and site names
+<nav class="navbar navbar-default">
+<div class="container-fluid">
+<div class="navbar-header">
+<a class="navbar-brand" href= # ">Site1</a>
+</div>
+<ul class="nav navbar-nav">
+<li class="active"><a href= # ">Home</a></li>
+<li><a href= # ">Contact us</a></li>
+<li><a href= # ">About us</a></li>
+</ul>
+</div>
+</nav>
+
+
+Labels
+
+
+Useful for providing tips, counts, or other markup for pages. Use class .label to display labels. Usage:
+
+<h1>Example Heading <span class = "label label-default">Label</span></h1>
+Modify the appearance of the labels with the modifier classes such as, label-danger, label-warning, label-info, label-default, label-success, and label-primary.
+
+
+Thumbnails
+
+
+Generally, sites require a way to lay out text, videos, images etc. in a grid. To create thumbnails:
+
+Include ahref tag with the class thumbnail around an image. This adds a grey border and four pixels of padding. On hover, an animated glow outlines the image.
+
+Usage:
+
+<div class = "col-sm-6 col-md-3">
+<a href = "#" class = "thumbnail">
+<img src = "/bootstrap/images/detailed.jpg">
+</a>
+</div>
+
+
+Alerts
+
+
+Used to style messages to the user and provide contextual feedback messages for typical user actions.
+
+Add an optional close icon to alert.
+For inline dismissal, use the Alerts jQuery plugin.
+Usage:
+
+<div class = "alert alert-success">Success!</div>
+<div class = "alert alert-info">Important Info!</div>
+<div class = "alert alert-warning">Warning!</div>
+<div class = "alert alert-danger">Error!</div>
+
+
+Media Object
+
+
+Abstract object styles for building various types of components like blog comments and Tweets, that feature a left-aligned or right-aligned image alongside the textual content.
+
+Goal of the media object - make the code drastically shorter for such objects.
+
+Media object classes:
+
+media - allows to float a media object (images, video, and audio) to the left or right of a content block.
+
+media-list - items will be part of an unordered list. Useful for comment threads or articles lists.
+
+
+
+Panels
+
+
+Panel components are used when a DOM component is placed in a box. Use classes .panel and .panel-default for implementing this.
+
+Usage:
+
+<div class = "panel panel-default">
+   <div class = "panel-body">
+      This is a Basic panel
+   </div>
+</div>
+
+
+Bootstrap Plugins Overview
+
+
+Bootstrap includes 12 jQuery plugins that provide additional features and interaction to a site. Most of these plugins can be triggered without writing a single line of code by using Bootstrap Data API.
+
+Bootstrap Plugins can be added to a site in two forms:
+
+Individually - using Bootstrap's individual *.js files. Ensure to check for the dependencies as few CSS components and plugins are dependant on other plugins.
+
+Compiled all simultaneously - using minified bootstrap.min.js or bootstrap.js. Do not add both, as they contain all plugins.
+
+
+Transition Plugin
+
+
+Offers simple transition effects.
+
+Transition.js helps as a CSS transition emulator and for transitionEnd events. It is utilized by the other plugins to get hanging transitions and check for CSS transition support.
+
+Use Cases
+
+Sliding carousel panes.
+Fading out alerts.
+Fading out tabs.
+Sliding or fading in modals.
+
+
+
+Dropdown Plugin
+
+Used to add dropdown menus to any components like navbars, tabs, pills and buttons. Toggle the hidden content of dropdown plugin:
+
+Via data attributes - add data-toggle = "dropdown"
+
+<div class = "dropdown">
+<a data-toggle = "dropdown" href = "#">Dropdown</a>
+<ul class = "dropdown-menu" role = "menu">
+    ...
+</ul>
+</div>
+To keep links intact use the data-target attribute
+
+<a id = "dLabel" role = "button" data-toggle = "dropdown" data-target = "#" href = "/page.html">Dropdown<span class = "caret"></span>
+</a>
+Via JavaScript
+
+$('.dropdown-toggle').dropdown()
+
+
+Tool tip Plug-in
+
+
+Generates markup and content on demand, and places tooltips after the trigger element. These are useful for describing a link.
+
+To add tooltips:
+
+Via data attributes - add data-toggle = "tooltip". The anchor title will be the text of a tooltip.
+
+<a href = "#" data-toggle = "tooltip" title = "Example tooltip">Hover over me</a>
+Via JavaScript
+
+$('#identifier').tooltip(options)
+
+
+Popover Plugin
+
+
+It is just like a tooltip, providing an extended view with a heading. The popover content can be populated using the Bootstrap Data API.
+
+The popover plugin creates markup and content on demand, and by default places popover after their trigger element. Include popover in two ways:
+
+Via data attributes - add data-toggle = "popover" to an anchor/button tag. The anchor title will be the text of a popover.
+
+ <a href = "#" data-toggle = "popover" title = "Example popover">Hover over me</a>
+Via JavaScript
+
+$('#identifier').popover(options)
+
+
+
+Carousel Plugin
+
+
+Bootstrap Carousel is a responsive and flexible way to include a slider to your site. The content is flexible and responsive, and allows videos, images, iframes, or any type of content. Implementing Bootstrap Carousel:
+
+Via data attributes
+
+Utilize data attributes to control the position of the carousel easily.
+Attribute data-slide accepts the keywords next or prev, which changes the position of the slide relative to its current position.
+Utilize data-slide-to to pass a raw slide index to the carousel. This shifts the slide position to a another index beginning with 0.
+The data-ride = "carousel" attribute is utilized to mark a carousel as an animation begining at page load.
+Via JavaScript
+
+$('.carousel').carousel()
+
+
+
+
+

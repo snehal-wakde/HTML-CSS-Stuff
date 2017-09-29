@@ -1,0 +1,519 @@
+Every tag in the HTML page has a index that starts from zero. Take a look at the following code to get a better understanding of indexing in tags
+
+<div>                //index 0 - div tag
+<p>Fresco Play</p>   //index 0 - p tag
+<p>Fresco Talk</p>   //index 1 - p tag
+</div>
+<div>index           //index 1 - div tag
+<p>Fresco games</p>  //index 2 - p tag
+</div>
+Usage: If you want to select a the third <p> tag then, use $("p").eq(2)
+
+
+
+slice() and first()
+
+slice()
+
+This is similar to eq() but selects a range of elements using their index
+
+Usage To select all the <p> tags between the index 2 and 5 :$("p").slice(2,5)
+
+first()
+
+This is used when there is a need to select only the first element from a selected group of elements.
+
+Usage: $("div").first()
+
+Similarly last() is used to filter only the last element
+
+
+
+filter()
+
+filter()
+
+This will take a parameter as the filter condition and apply filter to it based on the parameter. The selection would result in elements that matches the condition
+
+Usage
+
+Take a look at the following code. If you need to select only the <p> tags with class new, then the select statement will be $("p").filter(".new")
+
+<div class="new">          
+<p>Fresco Play</p>   
+<p>Fresco Talk</p>   
+</div>
+<div>index      
+<p class="new">Fresco games</p>  
+</div>
+If you need to select only the <p> tags without class new, then the select statement will be $("p").not(".new")
+
+
+
+
+
+
+
+Event Handling in jQuery
+
+Events are actions that are performed by the user or the browser in a web page.
+For example a mouse click, keypress are the events performed by a user and page load is an event that is performed by the browser.
+Events do the real magic in making the web page dynamic.
+Event handlers are the functions that are executed when an event occurs.
+Are you excited to know how does jQuery handles events? Keep going.
+
+
+You can associate any element in a HTML document with an event.
+Just choose the target element with the help of selector and then use the required event using dot operator
+Some frequently used events are: click(), focus(), blur(), hover(), etc.
+
+jQuery Events - Usage
+
+To add a click event to an element with id "fresco":
+
+$("#fresco").click()
+Now you should specify what should happen when the event occurs. This should be done by passing a function to the event
+
+$("#fresco").click(
+function(){
+console.log("This is an event");
+});
+Let us explore some important methods related to events in upcoming cards.
+
+on() Method
+
+Consider a scenario where you want to perform multiple actions on single element. This is where on() method comes into play. It helps in adding one or more event handlers to an element.
+
+Syntax :
+
+$(anyElement).on( events [, selector ] [, dataForHandler ], handlerFunction )
+Here the parameters are not mandatory. This will attach the on() method to the corresponding parent element and the selector parameter will be a child element.
+
+on() Method - Examples
+
+Single event handler
+
+$("div").on("click", function(){
+  console.log("using on() with single event handler");
+});
+Multiple event handler
+
+$("p").on({
+    click: function(){
+       console.log("This is click event");
+    }, 
+    hover: function(){
+       console.log("This is hover event");
+    }
+});
+
+In on() method, if the selector is not passed then it is called Direct event else it is called Delegate event.
+Event Delegation is the process of adding an event to a parent element which will be fired only when the selector parameter in on() function matches with the child elements(decendence).
+Advantage of using this is that the event handler will not only be appended to the existing decendence but also to all the decendence that will be added in future.
+
+Event Delegation - Example
+
+This example will demonstrate how event delegation in resourceful. Codepen- Event Delegation
+Here there are only two elements in the list initially and the on method will add event handlers to them.
+A new item is added only after the on() method executes but still the jQuery appends the event handler to the newly added elements.
+This explains the advantage of using the event delegation in webpages.
+
+
+off() Method
+
+Now you know how to add a event handler to an element, what if you want to remove a event handler from an element?
+
+Here comes off() method which will do that job.
+
+Usage
+
+This method accepts three parameters, the event name, selector and the event handler. These parameters are not mandatory.
+
+$("body").off( "click", "#fresco", myfunction );
+You can also use $("body").off() to remove all the event handlers associated with the selector.
+
+Similarly $("body").off("click"); will remove all the click events.
+
+
+preventDefault()
+
+Some elements in HTML have default behavior attached to them, such as a anchor tag opening an url in the browser.
+In case you want to override that behavior in your page then jQuery helps you with preventDefault() method.
+This method has no parameters.
+Just call the method wherever required and the default action of that element will be terminated.
+For the complete set of events and methods available in jQuery refer jQuery-Events
+
+
+html()
+
+This method is used to read the content of any element in the HTML document and return the text including the markup tags.
+
+Usage: On clicking a button, and alert message "<p>Welcome to <b>jQuery</b> course</p>" will be displayed. Even the markup tages are displayed as it is.
+
+//script
+$("button").click(function(){
+    alert($("p").html());
+});
+//HTML
+<button>Click me</button>
+<p>Welcome to <b>jQuery</b> course!</p>
+In case you want only the text, not the markup then use text() method.
+
+These methods can be used not only to read but also to set values to elements.
+
+val()
+
+This method can be used to read from or write to a form element in the webpage. val() method used without any parameter will read values and the same can be used to write when used with a parameter.
+
+Usage
+
+To read: On button click, val() will return the value present inside the input tag and display in console
+
+$("button").click(function(){
+var s = $("input").val();
+console.log(s);
+});
+To write: On button click, val() will set the parameter value to input element
+
+$("button").click(function(){
+$("input").val("Winter is comming");
+});
+
+append()/prepend()
+
+Just like the name states, these are used to add content to the HTML elements. append() will add the content to the end and prepend() will add content to the beginning.
+
+Usage: This will add new content at the beginning and end of the <p> element.
+
+//script
+$("p").append("<b>new content at end</b>. "); 
+$("p").prepend("<b>new content at beginning</b>. ");
+ //HTML
+<p>Existing text</p>  
+remove()
+This is used to delete the selected element and all its child element If you need to delete only the child element then use empty() method.
+
+Usage: $("#button_1").remove();
+
+Fade animation
+
+Fading is one of the most commonly used animation in webpages. jQuery offers four types of fading animations, they are:
+
+fadeIn(): The element is initially hidden and then made visible to user.
+
+fadeOut(): The element is initially visible and then hidden from the view.
+
+fadeToggle(): This is used to switch between fadeIn and fadeOut.
+
+fadeTo(): This is used to specify how much the element should fade (opacity).
+
+Check out the usage of Fade animation at Codepen.io. Fork the pen and play with the animation effects.
+
+
+Slide Animation
+
+Slide is again another commonly used animation. There are three built in slide animation:
+
+slideIn()
+slideOut()
+slideToggle()
+Check out the Usage of slide annimation at codepen.io
+
+stop() Method
+
+In case you want an animation to stop in the middle of execution this method can be used.
+
+delay() Method
+
+You can also use multiple effects to a single element. They will be executed in a queue fashion. To add time interval between two effects in a queue, this method can used.
+
+Usage: $( "div ).slideUp( 500 ).delay( 600 ).fadeIn( 300 );
+
+Animate()
+
+On top of ready to use animations, jQuery allows creating your own animation using animate() method
+
+Usage : $(selector).animate({parameter},animationSpeed,callbackMethod);
+
+parameter is mandatory and mentions the css property that has to be animated.
+animationSpeed method is optional and takes values like slow, fast, or milliseconds.
+callbackMethod is optional and specifies the function that has to be executed after the animation ends.
+You can also manipulate multiple css properties at a time. Just call multiple animate() methods and jQuery will execute them in queue fashion.
+
+Relative values for css properties can also be used. e.g: to increase the height by 10px relative to existing height, then use height+=10px.
+
+
+Utilities
+
+
+Consider you want have a piece of text that is to be displayed to the users. But it has a lot of blank space at the beginning and end.
+
+Instead of writing separate code for that, you can make use of jQuery's utility function $.trim().
+
+In order to help the developers with coding jQuery offers a number of utility methods.
+They are methods without any selectors. Syntax: $.nameSpace
+They help in reducing regular programming labor.
+
+
+Utililty Functions
+
+Let us see some of the commonly used utility functions
+
+$.isArray() will return wheather the given variable is a arrray or not.
+
+$.isPlainObject checks is the object is created using new keyword or not.
+
+$.merge() combines two array elements into one.
+
+$.each() used to iterate over arrays and objects.
+
+
+
+Method $.noConflict()
+
+This is one of the important utility method used widely.
+Nowadays developers user more than one stack to create a page.
+Some other stack might make use of the $ symbol of jQuery which might result in conflict.
+To avoid such conflict, use the $.noConflict() utility method.
+This allows you to replace the $ with keyword jQuery in the script
+$.noConflict();
+jQuery( document ).ready(function( $ ) {
+  // JQuery code. Here note that $ is replace by jQuery in ready function
+});
+
+
+AJAX in jQuery
+
+
+AJAX Stands for Asynchronous JAvaScript and XML
+This helps in interchanging data with the server without page reload.
+Popular websites like Gmail and facebook uses AJAX.
+With the help of jQuery and AJAX, you can load text, HTML, JSON and XML files from the server directly into the page.
+There are three important AJAX methods used in jQuery: - load(), get(), and post().
+
+load()
+
+This is used to load a text or html file from remote server and directly append them to the page.
+
+Usage:
+
+$(selector).load(URL,data,callback);
+URL is the mandatory field, which is file location address.
+data and callback are optional parameters. They specify what function to be executed after the file load.
+The callback fuction can have three parameters
+responseTxt - contains resulting data from server
+statusTxt - call status: success/fail
+xhr - XMLHttpRequest object: Eg: 404 error
+
+get()
+
+This method also retrieves data from server just like the load method. While load will directly inject the retrieved data into DOM, get() just retrieves the data and allows user to manipulate it.
+
+get() is more generic method while load is restricted to a selector.
+load can handle only text or html files where as get() does not have that restriction.
+Usage:
+
+$.get(URL,callback);
+URL is the mandatory field, which is file location address.
+callback is an optional function which will execute after file load. The callback method has 2 optional parameters. They are:
+data which has the content of the file loaded from the server.
+status which states whether the load is a success or fail.
+
+post()
+
+This method is also used to send request to server, along with some data.
+
+Syntax:
+
+$.post(URL,data,callback);
+URL is the mandatory field, which is file location address.
+data is the information sent along with the request.
+callback is an optional function which will execute after file load. This too has data and status as parameters.
+You can take a look at all the available ajax jQuery methods here: jQuery-AJAX methods
+
+jQueryUI Introduction
+
+jQueryUI is also a javascript library built on top of jQuery. It has a rich set of plugins for the developers to make a highly interactive website with less effort.
+
+To include jQueryUI library in your page download the .js file and .css file from the jQueryUI website or use CDN links. The same procedure you followed for jQuery which you must be familiar by now.
+Once you include the jQueryUI in your page, you have access to the big pool of plugins the jQueryUI offers.
+You will be introduced to some basic plugins and their demos in next few cards.
+
+
+Interaction using jQueryUI
+
+
+Interaction is something that makes an activity fun, let it be a presentation or a website.
+jQueryUI offers some built in plugins for interactions such as selectable, sortable, droppable, resizable and draggable.
+Let us see the usage of some of these plugins in next few cards.
+
+
+Widgets
+
+
+Widgets can be defined as plugins with extended functionality. Some of the jQueryUI plugins are accordion, datepicker, progressbar, tabs etc.,
+
+accordion()
+
+This is to make a set of elements expandable and collapasible.
+If you use this widget, all contents of the element will be hidden and only the heading will be visible.
+Once the user clicks the heading, then the contents are made visible.
+Syntax:
+
+$.(selector).accordion()(parameters)
+Parameters are key value pairs like active:"true", collapsible:"false"etc.,
+
+Check out the Usage at Codepen.io
+
+
+draggable() and resizable()
+
+draggable()
+
+If you want to make a element dragable in the page then use this plugin.
+
+Syntax:
+
+$.(selector).draggable(parameters)
+Parameters are key value pairs that may or may not be added to a draggable element Eg: appendTo: "body", scroll: "false" etc.
+
+Check out the usage at: Codepen.io
+
+resizable()
+
+Similarly to make an element resizable, this plugin is used.
+
+Syntax:
+
+$.(selector).resizable()(parameters)`
+Parameters are key value paires such as: maxWidth:20px, maxHeight:50px, etc.
+
+Animation Effects - jQueryUI
+
+jQueryUI offers few special animation plugins. Using these plugins, you can add visual effects to your page with less coding effort. Some jQueryUI effects are addClass(), switchClass(), removeClass(), easing(), etc.,
+
+addClass()
+
+This effect adds a class to an element and animates all the changes that the element undergoes.
+
+Syntax:
+
+$(selector).addClass( "className",parameter );
+The parameters include, duration , callbackfunction, etc. Similarly, you can use removeClass to remove any class and animate the changes.
+
+Widgets - tabs()
+
+This widget allows you to add tabs to your pages.
+All the tab heading should be included within an <ol> or <ul> list.
+Each tab "Heading" should be included in <li> and wrapped by <a> with an href attribute that points to content.
+The content of tab can be any HTML element and the id should be associated with the <a> tag's href.
+Syntax:$(selector).tabs();
+
+Method - effect()
+
+This method allows you to access a variety of custom effects that can be added to an element like bounce, scale, size, etc.
+
+Syntax:
+
+$(selector).effect( effectName,options);
+Options include duration, callback function etc.
+
+Check the Usage at: Codepen.io
+
+These effects can be combined with the show, hide and toggle methods to get some custom effects.
+
+
+
+jQuery Mobile - Introduction
+
+jQuery Mobile is a framework for creating a mobile based web applications that are touch optimized. This is built on top of jQuery library. Hence it is easy to use and involves less scripting.
+
+It supports all the mobile platforms and all popular browsers.
+It is compatible with popular frameworks like phonegap.
+Same source code can be used for both desktop and mobile platforms.
+To include jQuery mobile library, include CDN of .js file of jQuery, jQueryMobile, .css file and also use meta tag to get a better rendering of pages in all devices.
+
+
+CSS Framework
+
+Classes in jQuery Mobile
+
+The style sheet that jQuery Mobile offers allows you to access big pool of custom classes.
+
+There are four types of classes in jQuery mobile
+
+Widget specific classes
+Example: ui-collapsible-inset - this will make the widget margin and corner rounded.
+
+Button specific classes
+Example: ui-btn-inline - this will display the button inline.
+
+Icon specific classes
+Example: ui-btn-icon-left - this will make the text appear next to the icon.
+
+Theme specific classes
+Example: ui-page-theme-[a-z] - this will set the color theme for page.
+
+
+
+Themes
+
+jQuery mobile allows you to select a theme from the built in themes or create your own theme using theme roller. It contains two sets of swatches. (button, content and toolbar color)
+
+Usage: <div data-role="page" data-theme="a|b">
+
+Note that all the content of a page in jQuery mobile should be enclosed within data-role="page".
+
+Icons
+
+You can access all the custom icons for buttons and lists available in jQuery mobile. They can be accessed by adding class ui-icon to element.
+
+
+jQuery Mobile - Events
+
+jQuery Mobile has set of events that are optimized for touch responses. Event handling process is same as jQuery.
+
+Let us see some events and their usage:
+
+swipe()- is triggered when a swipe action occurs for more than 30px in horizontal direction.
+Usage:
+
+$( selector ).on( "swipe", HandlerFunction );
+tap()- is fired after a quick touch on the screen.
+Usage:
+
+$( selector ).on( "tap", HandlerFunction );
+pageload() - triggered after a page loads completely.
+
+
+jQuery Mobile- Methods
+
+Lets see some basic methods available in jQuery mobile.
+
+buttonMarkup(): Used in adding custom style on top of default styles to a button.
+
+Usage:
+
+$( "selector" ).buttonMarkup({ attribute: value });
+silentScroll(): Used to scroll vertically up to a particular pixel with out triggering an event handler.
+
+Usage:
+
+$.mobile.silentScroll(100)
+
+
+Widgets - jQuery mobile
+
+Let us see some mobile specific widgets available in jQuery mobile.
+
+Button Widget
+
+This can be added as a normal html element. jQuery identifies it based on type(i.e. submit, reset, etc) and enhance it with features.
+
+You can also explicitly use the widget : $( "selector" ).button();
+
+Similarly, for checkbox and radio buttons, based on the type, widget gets added automatically.
+
+Select menu Widget
+
+This widget helps in creating dropdown with jQuery mobile framework. Create a dropdown with normal select tags and options. jQuery will identify all select element and enhance it with features.
